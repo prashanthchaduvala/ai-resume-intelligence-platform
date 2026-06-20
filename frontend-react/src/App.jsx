@@ -90,6 +90,26 @@ function App() {
                   )}
                 </ul>
 
+                <h3>Interview Questions</h3>
+
+                <ul>
+                  {result.ai_recommendations?.interview_questions?.map(
+                    (item, index) => (
+                      <li key={index}>{item}</li>
+                    )
+                  )}
+                </ul>
+
+                <h3>Learning Roadmap</h3>
+
+                <ul>
+                  {result.ai_recommendations?.learning_roadmap?.map(
+                    (item, index) => (
+                      <li key={index}>{item}</li>
+                    )
+                  )}
+                </ul>
+
               </div>
             )}
 
