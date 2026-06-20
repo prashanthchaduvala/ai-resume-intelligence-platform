@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 import os
+from pdf_parser import extract_text_from_pdf
 
 app = FastAPI()
 
@@ -20,7 +21,10 @@ async def upload_resume(file: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         buffer.write(await file.read())
 
+    text = extract_text_from_pdf(file_path)
+
     return {
         "message": "Resume uploaded successfully",
-        "filename": file.filename
+        "filename": file.filename,
+        "text_preview": text[:1000]
     }
