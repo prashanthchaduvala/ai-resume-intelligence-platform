@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File
 import os
 from pdf_parser import extract_text_from_pdf
 import requests
-
+from fastapi import Form
 
 app = FastAPI()
 
@@ -17,7 +17,9 @@ def health():
     }
 
 @app.post("/upload-resume")
-async def upload_resume(file: UploadFile = File(...)):
+# async def upload_resume(file: UploadFile = File(...)):
+async def upload_resume(file: UploadFile = File(...),job_description: str = Form(...)):
+
     file_path = os.path.join(UPLOAD_DIR, file.filename)
 
     with open(file_path, "wb") as buffer:
@@ -25,15 +27,7 @@ async def upload_resume(file: UploadFile = File(...)):
 
     text = extract_text_from_pdf(file_path)
 
-    job_description = """
-        Looking for Python Developer with
-        Docker
-        Kubernetes
-        AWS
-        Terraform
-        Redis
-        CI/CD
-        """
+    
     
     response = requests.post(
         "http://127.0.0.1:8002/analyze",
@@ -45,9 +39,19 @@ async def upload_resume(file: UploadFile = File(...)):
 
     analysis_result = response.json()
 
+    ai_response = requests.post(
+        "http://127.0.0.1:8003/recommend",
+        json={
+            "match_score": analysis_result["match_score"],
+            "missing_skills": analysis_result["missing_skills"]
+            }
+        )
+
+    ai_result = ai_response.json()
+
     return {
         "message": "Resume uploaded successfully",
         "filename": file.filename,
-        # "text_preview": text[:1000]
-        "analysis": analysis_result
+        "analysis": analysis_result,
+        "ai_recommendations": ai_result
     }

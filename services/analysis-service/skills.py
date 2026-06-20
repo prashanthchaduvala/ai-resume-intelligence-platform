@@ -29,5 +29,17 @@ SKILLS = [
     "helm",
     "ansible",
     "devops",
-    "ci/cd"
+    "ci/cd",
+    "azure",
+    "gcp",
+    "helm",
+    "argocd",
+    "rabbitmq",
+    "ansible",
+    "terraform",
+    "eks",
+    "ecs",
+    "lambda",
+    "snowflake",
+    "airflow",
 ]
