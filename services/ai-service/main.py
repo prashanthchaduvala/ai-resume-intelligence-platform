@@ -24,7 +24,27 @@ def recommend(data: AIRequest):
             f"Consider learning {skill}"
         )
 
+    # return {
+    #     "match_score": data.match_score,
+    #     "recommendations": recommendations
+    # }
     return {
         "match_score": data.match_score,
-        "recommendations": recommendations
+        "recommendations": recommendations,
+
+        "interview_questions": [
+            "Explain Kubernetes architecture",
+            "What is Terraform state?",
+            "Difference between Docker and Kubernetes?",
+            "How does CI/CD work?",
+            "What is a Kubernetes Deployment?"
+        ],
+
+        "learning_roadmap": [
+            "Terraform Fundamentals",
+            "Helm Charts",
+            "ArgoCD",
+            "Advanced Kubernetes",
+            "AWS DevOps Services"
+        ]
     }

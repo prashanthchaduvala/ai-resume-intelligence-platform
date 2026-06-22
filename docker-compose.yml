@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  resume-service:
+    build:
+      context: ./services/resume-service
+    container_name: resume-service
+    ports:
+      - "8001:8001"
+
+  analysis-service:
+    build:
+      context: ./services/analysis-service
+    container_name: analysis-service
+    ports:
+      - "8002:8002"
+
+  ai-service:
+    build:
+      context: ./services/ai-service
+    container_name: ai-service
+    ports:
+      - "8003:8003"
+
+  auth-service:
+    build:
+      context: ./services/auth-service
+    container_name: auth-service
+    ports:
+      - "8000:8000"

@@ -1,45 +1,68 @@
 SKILLS = [
+
+    # Languages
     "python",
+    "java",
+    "go",
+    "c++",
+    "javascript",
+
+    # Backend
     "django",
     "fastapi",
     "flask",
-    "docker",
-    "kubernetes",
-    "terraform",
-    "aws",
-    "azure",
-    "gcp",
+    "rest api",
+    "microservices",
+
+    # Databases
     "postgresql",
     "mysql",
     "mongodb",
     "redis",
-    "celery",
+
+    # DevOps
+    "docker",
+    "kubernetes",
+    "terraform",
+    "helm",
+    "argocd",
     "jenkins",
     "github actions",
     "gitlab ci/cd",
+    "ci/cd",
+
+    # Cloud
+    "aws",
+    "azure",
+    "gcp",
+    "lambda",
+
+    # Monitoring
     "prometheus",
     "grafana",
     "elk",
-    "nginx",
+
+    # Infrastructure
     "linux",
-    "microservices",
-    "rest api",
+    "nginx",
+
+    # Data Engineering
+    "data engineering",
+    "data pipelines",
+    "data processing",
+    "financial datasets",
+    "quantitative",
+    "distributed systems",
+    "cloud-native",
+
+    # Testing
+    "automated testing",
+    "unit testing",
+    "integration testing",
+    "version control",
+
+    # Messaging
     "rabbitmq",
-    "argocd",
-    "helm",
-    "ansible",
-    "devops",
-    "ci/cd",
-    "azure",
-    "gcp",
-    "helm",
-    "argocd",
-    "rabbitmq",
-    "ansible",
-    "terraform",
-    "eks",
-    "ecs",
-    "lambda",
-    "snowflake",
-    "airflow",
+    "celery",
+    "airflow"
 ]
